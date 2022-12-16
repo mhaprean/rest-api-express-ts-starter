@@ -25,9 +25,8 @@ app.use(cors());
 // add routes for our app
 app.use('/api/auth', authRoutes);
 
-
 app.get('/', (req, res) => {
   return res.status(200).json('welcome to our api');
-})
+});
 
 export default app;

@@ -10,9 +10,13 @@ const signJWTToken = (userId: string, role = 'user') => {
 };
 
 const signJWTRefreshToken = (userId: string, role = 'user') => {
-  return jwt.sign({ id: userId, role: role }, process.env.JWT_REFRESH_SECRET || 'jwt_refresh_secret', {
-    expiresIn: '2d',
-  });
+  return jwt.sign(
+    { id: userId, role: role },
+    process.env.JWT_REFRESH_SECRET || 'jwt_refresh_secret',
+    {
+      expiresIn: '2d',
+    }
+  );
 };
 
 export const register = async (req: Request, res: Response, next: NextFunction) => {
